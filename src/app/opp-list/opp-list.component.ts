@@ -1,13 +1,15 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { TimeService } from '../time.service';
 import { Opportunity } from '../account.types';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-opp-list',
   templateUrl: './opp-list.component.html',
   styleUrls: ['./opp-list.component.css']
 })
-export class OppListComponent implements OnInit {
+export class OppListComponent implements OnInit, OnDestroy {
+  private subscriptions: Subscription[] = [];
 
   constructor(private timeService: TimeService) { }
 
@@ -16,9 +18,16 @@ export class OppListComponent implements OnInit {
   selectedOpp: Opportunity;
 
   ngOnInit() {
-    this.timeService.oppList.subscribe((data) => {
-      this.opportunityList = data;
-    });
+    this.subscriptions.push(
+      this.timeService.oppList.subscribe((data) => {
+        this.opportunityList = data;
+      })
+    );
+  }
+
+  ngOnDestroy() {
+    this.subscriptions.forEach((sub) => { sub.unsubscribe()});
+
   }
 
   onOppSelected(event) {

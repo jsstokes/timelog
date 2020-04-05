@@ -38,14 +38,15 @@ export class TimeService implements OnInit, OnDestroy {
 
   private selectedAccountSource = new BehaviorSubject<Account>(null);
   selectedAccount = this.selectedAccountSource.asObservable();
-  changeSelectedAccount(newSelection: Account) {
-    this.selectedAccountSource.next(newSelection);
+  changeSelectedAccount(newAccount: Account) {
+    this.selectedAccountSource.next(newAccount);
+    this.changeOppList(newAccount.opps);
   }
 
   private selectedOppSource = new BehaviorSubject<any>(null);
   private selectedOpp = this.selectedOppSource.asObservable();
   changeSelectedOpp(newOpp: Opportunity) {
-    console.log("Changing selectOpp to: " + JSON.stringify(newOpp));
+    console.log("TimeService: Changing selectOpp to: " + JSON.stringify(newOpp));
     this.selectedOppSource.next(newOpp);
   }
 
@@ -59,6 +60,7 @@ export class TimeService implements OnInit, OnDestroy {
   private oppListSource = new BehaviorSubject<Opportunity[]>(null);
   oppList = this.oppListSource.asObservable();
   changeOppList(newOppList: Opportunity[]) {
+    // console.log("TimeService: setting oppList to " + JSON.stringify(newOppList));
     this.oppListSource.next(newOppList);
   }
 
