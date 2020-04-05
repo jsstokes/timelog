@@ -10,6 +10,7 @@ import { AccountListComponent } from './account-list/account-list.component';
 import { TimeFormComponent } from './time-form/time-form.component';
 import { OppListComponent } from './opp-list/opp-list.component';
 import { MainViewComponent } from './main-view/main-view.component';
+import { AccountViewComponent } from './account-view/account-view.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { MainViewComponent } from './main-view/main-view.component';
     AccountListComponent,
     TimeFormComponent,
     OppListComponent,
-    MainViewComponent
+    MainViewComponent,
+    AccountViewComponent
   ],
   imports: [
     BrowserModule,
