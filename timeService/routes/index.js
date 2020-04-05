@@ -119,7 +119,7 @@ router.get('/', function(req, res, next) {
 router.get('/timeEntries', (req,res,next) => {
   res.header('Access-Control-Allow-Origin',"http://localhost:4200");
   res.header("Access-Control-Allow-Headers","Origin,X-Requested-With,Content-Type,Accept");
-  console.log("Sending accounts: " + JSON.stringify(accounts));
+  // console.log("Sending accounts: " + JSON.stringify(accounts));
   res.send(accounts);
 });
 
