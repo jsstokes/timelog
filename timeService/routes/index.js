@@ -83,7 +83,7 @@ accounts = [
     "opps": [
       {
         _id: "A3O1",
-        oppName: "A3 Opp 1"
+        oppName: "A3 Opp 1 - from the service"
       },
       {
         _id: "A3O2",
@@ -119,6 +119,7 @@ router.get('/', function(req, res, next) {
 router.get('/timeEntries', (req,res,next) => {
   res.header('Access-Control-Allow-Origin',"http://localhost:4200");
   res.header("Access-Control-Allow-Headers","Origin,X-Requested-With,Content-Type,Accept");
+  console.log("Sending accounts: " + JSON.stringify(accounts));
   res.send(accounts);
 });
 

@@ -122,7 +122,8 @@ export class AccountListComponent implements OnInit {
   constructor(private timeService: TimeService) { }
 
   ngOnInit() {
-    this.timeService.getAccountList().subscribe((data) => {
+    this.timeService.fetchAccountList();
+    this.timeService.accountList.subscribe((data) => {
       console.log(data);
       this.accounts = data;
     });
