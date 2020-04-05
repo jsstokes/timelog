@@ -1,0 +1,5 @@
+
+<select id="oppSelected" name="oppSelected" size=25 class="selectionList" (change)="onOppSelected($event)">
+  <option *ngFor="let opp of opportunityList" [value]="opp._id">{{opp.oppName}}</option>
+</select>
+

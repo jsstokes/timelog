@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Account, Opportunity, TimeEntry } from '../account.types';
 import { TimeService } from '../time.service';
+import { Subscription } from 'rxjs';
 
 
 
@@ -10,6 +11,8 @@ import { TimeService } from '../time.service';
   styleUrls: ['./account-list.component.css']
 })
 export class AccountListComponent implements OnInit {
+
+  private subscriptions: Subscription[] = [];
 
   accounts;
   //  = [
@@ -123,16 +126,18 @@ export class AccountListComponent implements OnInit {
 
   ngOnInit() {
     this.timeService.fetchAccountList();
-    this.timeService.accountList.subscribe((data) => {
-      console.log(data);
-      this.accounts = data;
-    });
+    this.subscriptions.push(
+      this.timeService.accountList.subscribe((data) => {
+        console.log(data);
+        this.accounts = data;
+      })
+    );
   }
   selectedAccountID = 0;
   selectedAccount = null;
 
-  selectedOppID = null;
-  oppsList = null;
+  // selectedOppID = null;
+  // oppsList = null;
 
 
 
@@ -144,18 +149,11 @@ export class AccountListComponent implements OnInit {
     this.selectedAccount = this.accounts.find((acct) => acct._id == this.selectedAccountID);
     if (this.selectedAccountID == 0)
     {
-      this.oppsList = null;
+      this.timeService.changeOppList(null)
     } else {
-      this.oppsList = this.selectedAccount.opps;
+      this.timeService.changeOppList(this.selectedAccount.opps);
     }
     console.log("Find complete");
     console.log(this.selectedAccount);
   }
-
-  onOppSelected(event) {
-    console.log("Opp Selected: " + JSON.stringify(event));
-    this.selectedOppID = event.target.value;
-    console.log("Selected value: " + this.selectedOppID);
-  }
-
 }

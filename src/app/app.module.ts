@@ -8,13 +8,15 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { AccountListComponent } from './account-list/account-list.component';
 import { TimeFormComponent } from './time-form/time-form.component';
+import { OppListComponent } from './opp-list/opp-list.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     AccountListComponent,
-    TimeFormComponent
+    TimeFormComponent,
+    OppListComponent
   ],
   imports: [
     BrowserModule,

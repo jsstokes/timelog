@@ -4,9 +4,7 @@
     <option *ngFor="let acct of accounts" [value]="acct._id">{{acct.accountName}}</option>
   </select>
   <br>
-  <select id="oppSelected" name="oppSelected" size=25 class="selectionList" (change)="onOppSelected($event)">
-    <option *ngFor="let opp of oppsList" [value]="opp._id">{{opp.oppName}}</option>
-  </select>
+  <app-opp-list></app-opp-list>
 </div>
 <div class="col-md-9">
   <app-time-form></app-time-form>

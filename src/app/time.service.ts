@@ -4,7 +4,7 @@ import { Account, Opportunity, TimeEntry } from './account.types';
 // import { AccountListComponent } from './account-list/account-list.component';
 import { Observable } from 'rxjs';
 import { BehaviorSubject } from 'rxjs';
-import 'rxjs/add/observable/of';
+// import 'rxjs/add/observable/of';
 
 const TIME_SERVICE_URL = "http://localhost:3000/timeEntries"
 
@@ -45,6 +45,7 @@ export class TimeService implements OnInit, OnDestroy {
   private selectedOppSource = new BehaviorSubject<any>(null);
   private selectedOpp = this.selectedOppSource.asObservable();
   changeSelectedOpp(newOpp: Opportunity) {
+    console.log("Changing selectOpp to: " + JSON.stringify(newOpp));
     this.selectedOppSource.next(newOpp);
   }
 
