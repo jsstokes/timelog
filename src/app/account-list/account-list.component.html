@@ -1,11 +1,4 @@
-<div class="col-md-3">
   <select id="accountSelected" name="accountSelected" class="selectionList" (change)="onAccountSelected($event)">
     <option value=0>Undefined</option>
     <option *ngFor="let acct of accounts" [value]="acct._id">{{acct.accountName}}</option>
   </select>
-  <br>
-  <app-opp-list></app-opp-list>
-</div>
-<div class="col-md-9">
-  <app-time-form></app-time-form>
-</div>

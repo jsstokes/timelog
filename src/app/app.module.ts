@@ -9,6 +9,7 @@ import { HeaderComponent } from './header/header.component';
 import { AccountListComponent } from './account-list/account-list.component';
 import { TimeFormComponent } from './time-form/time-form.component';
 import { OppListComponent } from './opp-list/opp-list.component';
+import { MainViewComponent } from './main-view/main-view.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { OppListComponent } from './opp-list/opp-list.component';
     HeaderComponent,
     AccountListComponent,
     TimeFormComponent,
-    OppListComponent
+    OppListComponent,
+    MainViewComponent
   ],
   imports: [
     BrowserModule,
