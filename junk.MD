@@ -18,7 +18,7 @@ We are trying to keep the shared environment as clean as possible to prevent any
 
 
 ## Please refrain from...
-1. Creating new database or collections.  Use the existing data where possible.  If you feel something else is truly needed, see the section [Permanently Publishing Changes](#changes) below. 
+1. Creating new database or collections.  Use the existing data where possible.  If you feel something else is truly needed, see the section [Permanently Publishing Changes](#permanently-publishing-changes) below. 
 
 
 
@@ -46,7 +46,7 @@ The Msideutils module should be imported into your notebook.  Several functions 
     
 ```
 
-## Permanently Publishing Changes {#changes}
+## Permanently Publishing Changes
 To that end, to get something (notebooks, databases, collections, etc) permanently added into the process so that it will be durable going forward.  Please use the `#presales-mside` slack channel for now.
 
 This process will most likely change as mSIDE matures.  Please feel free to suggest improvements so we can make this better for everyone.
